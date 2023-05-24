@@ -1,0 +1,8 @@
+<h1 style="text-align: center;">List of restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <div style="text-align: center;">
+    <strong><%= restaurant.name%></strong> |
+    <%= restaurant.phone_number %>
+  </div>
+<% end %>
