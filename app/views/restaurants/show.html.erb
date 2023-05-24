@@ -1,0 +1,22 @@
+<h1 style="text-align: center; margin: 36px;"><%= @restaurant.name %></h1>
+
+<div style="text-align: center; margin: 12px;">
+  <p>Type of food: <strong><%= @restaurant.category.capitalize %></strong></p>
+  <p>Address: <%= @restaurant.address %></p>
+  <p>Phone number: <em><%= @restaurant.phone_number %></em></p>
+</div>
+
+  <% @restaurant.reviews.each do |review| %>
+<div class="review">
+      <p><%= review.content %></p>
+      <strong style="font-family: 12px;"><%= review.rating %></strong>
+</div>
+    <% end %>
+
+<div style="text-align: center; font-size: 18px; margin: 36px;">
+  <%= link_to "Back to list of restaurants", restaurants_path %>
+</div>
+
+<div style="margin: 24px;">
+  <%= render "reviews/form", restaurant: @restaurant, review: @review %>
+</div>

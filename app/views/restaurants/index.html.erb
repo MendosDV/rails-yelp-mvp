@@ -1,8 +1,12 @@
-<h1 style="text-align: center;">List of restaurants</h1>
+<h1 style="text-align: center; margin: 48px 0px;">List of restaurants</h1>
 
 <% @restaurants.each do |restaurant| %>
-  <div style="text-align: center;">
-    <strong><%= restaurant.name%></strong> |
-    <%= restaurant.phone_number %>
+  <div class="cardy">
+    <strong><%= link_to restaurant.name, restaurant_path(restaurant) %>    |   </strong>
+    <%= restaurant.category.capitalize %>
   </div>
 <% end %>
+
+<div style="text-align: center; font-size: 18px; margin: 36px;">
+  <%= link_to "Create new restaurant", new_restaurant_path %>
+</div>

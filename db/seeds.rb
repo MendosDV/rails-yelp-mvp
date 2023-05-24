@@ -11,12 +11,19 @@ Restaurant.destroy_all
 
 puts 'Generate new Restaurant'
 10.times do
-  Restaurant.create!(
+  resto = Restaurant.create!(
   name: Faker::Restaurant.name,
   address: Faker::Address.street_address,
   phone_number: Faker::PhoneNumber.phone_number,
   category: Restaurant::CATEGORY.sample
 )
+  5.times do
+    Review.create!(
+      content: Faker::Restaurant.review,
+      rating: rand(1..5),
+      restaurant_id: resto.id
+  )
+  end
 end
 
 puts 'Done'
